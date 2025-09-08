@@ -1,8 +1,9 @@
 from os import environ
-
 if "windows" in environ.get("OS","null").lower():
     exit(0)
 exit(1)
+
+
 # 
 # 
 # 
