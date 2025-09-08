@@ -4,7 +4,7 @@ import time
 import random
 
 def fake_download():
-    total = 100
+    total = 500
     progress = 0
     while progress < total:
         step = random.randint(10, 15)  # random step increase
@@ -32,14 +32,14 @@ elif 'linux' in platform:
     if "alpine" in os_release:
         print('Executing command run(["sudo", "apk", "add", "--no-cache", "code"])')
         fake_download()
-        run(["sudo", "apk", "add", "--no-cache", "code"])
+        # run(["sudo", "apk", "add", "--no-cache", "code"])
     elif "debian" in os_release or "ubuntu" in os_release:
         print('Executing command run(["sudo", "apt", "update", "-y"])')
         fake_download()
-        run(["sudo", "apt", "update", "-y"])
+        # run(["sudo", "apt", "update", "-y"])
 
         print('Executing command run(["sudo", "apt", "install", "-y", "code"])')
         fake_download()
-        run(["sudo", "apt", "install", "-y", "code"])
+        # run(["sudo", "apt", "install", "-y", "code"])
     else:
         print("nun supported bro")
