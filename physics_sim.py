@@ -94,8 +94,12 @@ def create_cube(size=CUBE_SIZE, mass=CUBE_MASS, position=(0, 0, 2), rgba=None):
 
 
 def get_camera_target():
-    # Returns the camera target position from the debug visualizer
-    _, _, _, target, _, _ = p.getDebugVisualizerCamera()
+    # getDebugVisualizerCamera returns 13 values:
+    # [0]=width, [1]=height, [2]=viewMatrix, [3]=projectionMatrix,
+    # [4]=cameraUp, [5]=cameraForward, [6]=hor, [7]=ver,
+    # [8]=yaw, [9]=pitch, [10]=dist, [11]=target, [12]=camPos
+    cam_info = p.getDebugVisualizerCamera()
+    target = cam_info[11]  # cameraTargetPosition
     return target
 
 
@@ -109,8 +113,7 @@ def key_was_triggered(events, key_code):
     return (key_code in events) and (events[key_code] & p.KEY_WAS_TRIGGERED)
 
 
-def key_is_released(events, key_code):
-    return (key_code in events) and (events[key_code] & p.KEY_WAS_RELEASED)
+
 
 
 def main():

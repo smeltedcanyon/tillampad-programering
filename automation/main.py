@@ -1,6 +1,6 @@
 from subprocess import run
 import sys
-
+print(sys.argv)
 platform = sys.platform.lower()
 
 if 'win' in platform:
